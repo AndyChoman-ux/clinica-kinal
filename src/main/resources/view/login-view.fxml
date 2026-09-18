@@ -21,5 +21,6 @@
     <PasswordField fx:id="campoPassword" />
 
     <Button onAction="#iniciarSesion" text="Ingresar" />
+    <Button onAction="#irARegistro" text="Crear cuenta" />
 
 </VBox>
