@@ -56,4 +56,9 @@ public class LoginController implements Initializable {
                     e.getMessage(), AlertType.ERROR);
         }
     }
+    
+    @FXML
+private void irARegistro() throws Exception {
+    sceneManager.showRegistroView();
+}
 }
