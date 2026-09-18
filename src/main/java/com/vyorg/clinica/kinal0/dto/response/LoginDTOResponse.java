@@ -1,31 +1,23 @@
 package main.java.com.vyorg.clinica.kinal0.dto.response;
 
 public class LoginDTOResponse {
-   private int idUsuario;
-private String nombreCompleto;
-private String nombreUsuario;
-private String passwordHash;
-private int idRol;
-private String nombreRol;
-private boolean activo;
+    private int idUsuario;
+    private String nombreCompleto;
+    private String nombreUsuario;
+    private String passwordHash;
+    private int idRol;
+    private String nombreRol;
+    private boolean activo;
 
-public LoginDTOResponse(int idUsuario, String nombreCompleto, String nombreUsuario,
-                         String passwordHash, int idRol, String nombreRol, boolean activo) {
-    this.idUsuario = idUsuario;
-    this.nombreCompleto = nombreCompleto;
-    this.nombreUsuario = nombreUsuario;
-    this.passwordHash = passwordHash;
-    this.idRol = idRol;
-    this.nombreRol = nombreRol;
-    this.activo = activo;
-}
-
-    public void setIdRol(int idRol) {
+    public LoginDTOResponse(int idUsuario, String nombreCompleto, String nombreUsuario,
+                             String passwordHash, int idRol, String nombreRol, boolean activo) {
+        this.idUsuario = idUsuario;
+        this.nombreCompleto = nombreCompleto;
+        this.nombreUsuario = nombreUsuario;
+        this.passwordHash = passwordHash;
         this.idRol = idRol;
-    }
-
-    public int getIdRol() {
-        return idRol;
+        this.nombreRol = nombreRol;
+        this.activo = activo;
     }
 
     public int getIdUsuario() {
@@ -60,6 +52,14 @@ public LoginDTOResponse(int idUsuario, String nombreCompleto, String nombreUsuar
         this.passwordHash = passwordHash;
     }
 
+    public int getIdRol() {
+        return idRol;
+    }
+
+    public void setIdRol(int idRol) {
+        this.idRol = idRol;
+    }
+
     public String getNombreRol() {
         return nombreRol;
     }
@@ -75,7 +75,4 @@ public LoginDTOResponse(int idUsuario, String nombreCompleto, String nombreUsuar
     public void setActivo(boolean activo) {
         this.activo = activo;
     }
-    
-    
-    
 }

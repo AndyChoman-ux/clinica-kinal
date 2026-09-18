@@ -11,13 +11,13 @@ public class AccesoRepository {
 
     public LoginDTOResponse findUserByNombreUsuario(LoginDTORequest loginDTORequest) {
         String sql = "select u.id_usuario, u.nombre_completo, u.nombre_usuario, " +
-             "u.password_hash, u.activo, u.id_rol, r.nombre_rol " +
+             "u.password_hash, u.id_rol, u.activo, r.nombre_rol " +
              "from usuarios as u " +
              "inner join roles as r on u.id_rol = r.id_rol " +
-             "where u.nombre_usuario = ? ";
-
+             "where u.nombre_usuario = ? or u.correo = ? ";
         try (PreparedStatement pstm = DatabaseConnection.getDatabaseConnection().prepareStatement(sql)) {
             pstm.setString(1, loginDTORequest.getNombreUsuario());
+            pstm.setString(2, loginDTORequest.getNombreUsuario());
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
                return new LoginDTOResponse(
@@ -28,7 +28,7 @@ public class AccesoRepository {
         rs.getInt("id_rol"),
         rs.getString("nombre_rol"),
         rs.getBoolean("activo")
-);
+);  
             }
         } catch (SQLException e) {
             System.out.println("Error al buscar el usuario: " + e.getMessage());
