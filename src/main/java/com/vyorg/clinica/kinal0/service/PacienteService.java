@@ -46,21 +46,32 @@ public class PacienteService {
     }
 
     private void validar(Paciente paciente) {
-        if (paciente.getNombreCompleto() == null || paciente.getNombreCompleto().isBlank()) {
-            throw new RuntimeException("El nombre completo es obligatorio");
-        }
-        if (paciente.getFechaNacimiento() == null) {
-            throw new RuntimeException("La fecha de nacimiento es obligatoria");
-        }
-        if (paciente.getFechaNacimiento().isAfter(LocalDate.now())) {
-            throw new RuntimeException("La fecha de nacimiento no puede ser futura");
-        }
-        if (paciente.getGenero() == null || paciente.getGenero().isBlank()) {
-            throw new RuntimeException("El género es obligatorio");
-        }
-        if (paciente.getCorreo() != null && !paciente.getCorreo().isBlank()
-        && !PATRON_CORREO.matcher(paciente.getCorreo().trim()).matches()) {
-    throw new RuntimeException("El correo debe tener un formato válido, por ejemplo nombre@gmail.com");
-}
+    if (paciente.getNombreCompleto() == null || paciente.getNombreCompleto().isBlank()) {
+        throw new RuntimeException("El nombre completo es obligatorio");
     }
+    if (paciente.getFechaNacimiento() == null) {
+        throw new RuntimeException("La fecha de nacimiento es obligatoria");
+    }
+    if (paciente.getFechaNacimiento().isAfter(LocalDate.now())) {
+        throw new RuntimeException("La fecha de nacimiento no puede ser futura");
+    }
+    if (paciente.getGenero() == null || paciente.getGenero().isBlank()) {
+        throw new RuntimeException("El género es obligatorio");
+    }
+    if (paciente.getTipoSangre() == null || paciente.getTipoSangre().isBlank()) {
+        throw new RuntimeException("El tipo de sangre es obligatorio");
+    }
+    if (paciente.getTelefono() == null || paciente.getTelefono().isBlank()) {
+        throw new RuntimeException("El teléfono es obligatorio");
+    }
+    if (paciente.getDireccion() == null || paciente.getDireccion().isBlank()) {
+        throw new RuntimeException("La dirección es obligatoria");
+    }
+    if (paciente.getCorreo() == null || paciente.getCorreo().isBlank()) {
+        throw new RuntimeException("El correo es obligatorio");
+    }
+    if (!PATRON_CORREO.matcher(paciente.getCorreo().trim()).matches()) {
+        throw new RuntimeException("El correo debe tener un formato válido, por ejemplo nombre@gmail.com");
+    }
+}
 }
