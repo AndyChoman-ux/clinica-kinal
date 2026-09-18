@@ -11,6 +11,7 @@ import main.java.com.vyorg.clinica.kinal0.dto.request.LoginDTORequest;
 import main.java.com.vyorg.clinica.kinal0.dto.response.LoginDTOResponse;
 import main.java.com.vyorg.clinica.kinal0.service.AccesoService;
 import main.java.com.vyorg.clinica.kinal0.util.SceneManager;
+import main.java.com.vyorg.clinica.kinal0.util.Sesion;
 
 public class LoginController implements Initializable {
 
@@ -45,9 +46,10 @@ public class LoginController implements Initializable {
 
         try {
             LoginDTOResponse response = accesoService.login(new LoginDTORequest(usuario, password));
-            sceneManager.showAlertInfo("Bienvenido, " + response.getNombreCompleto(),
-                    "Inicio de sesión correcto", "Rol: " + response.getNombreRol(), AlertType.INFORMATION);
-            sceneManager.showDashboardView();
+           Sesion.iniciar(response);
+           sceneManager.showAlertInfo("Bienvenido, " + response.getNombreCompleto(),
+              "Inicio de sesión correcto", "Rol: " + response.getNombreRol(), AlertType.INFORMATION);
+           sceneManager.showDashboardView();
         } catch (RuntimeException e) {
             sceneManager.showAlertInfo("Acceso denegado", "No se pudo iniciar sesión",
                     e.getMessage(), AlertType.WARNING);
