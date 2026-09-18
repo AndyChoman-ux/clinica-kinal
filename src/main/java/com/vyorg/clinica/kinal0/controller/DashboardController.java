@@ -32,6 +32,15 @@ public class DashboardController implements Initializable {
     public DashboardController(SceneManager sceneManager) {
         this.sceneManager = sceneManager;
     }
+    
+    @FXML
+private void irAPacientes() {
+    try {
+        sceneManager.showPacientesView();
+    } catch (Exception e) {
+        sceneManager.showAlertInfo("Error", "No se pudo abrir Pacientes", e.getMessage(), AlertType.ERROR);
+    }
+}
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
