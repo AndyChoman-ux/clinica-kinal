@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" prefHeight="405.0" prefWidth="622.0" spacing="10.0" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.com.vyorg.clinica.kinal0.controller.RegistroController">
+    <padding>
+        <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+    </padding>
+
+    <Label text="Crear cuenta" />
+
+    <Label text="Correo" />
+    <TextField fx:id="campoCorreoRegistro" />
+
+    <Label text="Nombre de usuario" />
+    <TextField fx:id="campoNombreUsuarioRegistro" />
+
+    <Label text="Contraseña" />
+    <PasswordField fx:id="campoPasswordRegistro" />
+
+    <Button onAction="#registrarUsuario" text="Registrarme" />
+    <Button onAction="#volverALogin" text="Volver a iniciar sesión" />
+
+</VBox>

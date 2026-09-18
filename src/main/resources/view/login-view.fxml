@@ -14,12 +14,13 @@
 
     <Label text="Iniciar sesión" />
 
-    <Label text="Usuario" />
+    <Label text="Usuario o correo" />
     <TextField fx:id="campoUsuario" />
 
     <Label text="Contraseña" />
     <PasswordField fx:id="campoPassword" />
 
     <Button onAction="#iniciarSesion" text="Ingresar" />
+    <Button onAction="#irARegistro" text="Crear cuenta" />
 
 </VBox>
