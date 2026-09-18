@@ -1,21 +1,31 @@
 package main.java.com.vyorg.clinica.kinal0.dto.response;
 
 public class LoginDTOResponse {
-    private int idUsuario;
-    private String nombreCompleto;
-    private String nombreUsuario;
-    private String passwordHash;
-    private String nombreRol;
-    private boolean activo;
+   private int idUsuario;
+private String nombreCompleto;
+private String nombreUsuario;
+private String passwordHash;
+private int idRol;
+private String nombreRol;
+private boolean activo;
 
-    public LoginDTOResponse(int idUsuario, String nombreCompleto, String nombreUsuario,
-                             String passwordHash, String nombreRol, boolean activo) {
-        this.idUsuario = idUsuario;
-        this.nombreCompleto = nombreCompleto;
-        this.nombreUsuario = nombreUsuario;
-        this.passwordHash = passwordHash;
-        this.nombreRol = nombreRol;
-        this.activo = activo;
+public LoginDTOResponse(int idUsuario, String nombreCompleto, String nombreUsuario,
+                         String passwordHash, int idRol, String nombreRol, boolean activo) {
+    this.idUsuario = idUsuario;
+    this.nombreCompleto = nombreCompleto;
+    this.nombreUsuario = nombreUsuario;
+    this.passwordHash = passwordHash;
+    this.idRol = idRol;
+    this.nombreRol = nombreRol;
+    this.activo = activo;
+}
+
+    public void setIdRol(int idRol) {
+        this.idRol = idRol;
+    }
+
+    public int getIdRol() {
+        return idRol;
     }
 
     public int getIdUsuario() {
@@ -65,4 +75,7 @@ public class LoginDTOResponse {
     public void setActivo(boolean activo) {
         this.activo = activo;
     }
+    
+    
+    
 }
