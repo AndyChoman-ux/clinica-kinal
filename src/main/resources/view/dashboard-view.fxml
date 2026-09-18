@@ -16,7 +16,10 @@
                 <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
             </padding>
             <Label text="Panel principal - Gestor de Expedientes Clínicos"/>
-            <Button text="Cerrar sesión" onAction="#cerrarSesion"/>
+            <Label fx:id="lblUsuario" text="Usuario: -"/>
+            <Label fx:id="lblRol" text="Rol: -"/>
+          <Button fx:id="btnAdministrarUsuarios" text="Administrar usuarios"/>
+          <Button text="Cerrar sesión" onAction="#cerrarSesion"/>
         </VBox>
     </center>
 </BorderPane>
