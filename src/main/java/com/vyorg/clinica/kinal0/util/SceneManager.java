@@ -8,12 +8,9 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import main.java.com.vyorg.clinica.kinal0.controller.DashboardController;
 import main.java.com.vyorg.clinica.kinal0.controller.LoginController;
+import main.java.com.vyorg.clinica.kinal0.repository.AccesoRepository;
+import main.java.com.vyorg.clinica.kinal0.service.AccesoService;
 
-/**
- * Se encarga de cargar los FXML y cambiar la escena del stage principal.
- * Los controladores reciben el SceneManager por constructor (mediante
- * setControllerFactory) para poder pedirle que navegue a otra vista.
- */
 public class SceneManager {
 
     private final Stage stage;
@@ -24,7 +21,19 @@ public class SceneManager {
 
     public void showLoginView() throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/resources/view/login.fxml"));
-        loader.setControllerFactory(c -> new LoginController(this));
+
+        loader.setControllerFactory(clazz -> {
+            if (clazz == LoginController.class) {
+                AccesoRepository accesoRepository = new AccesoRepository();
+                AccesoService accesoService = new AccesoService(accesoRepository);
+                return new LoginController(accesoService, this);
+            }
+            try {
+                return clazz.getDeclaredConstructor().newInstance();
+            } catch (Exception e) {
+                throw new RuntimeException("Error al crear el controlador: " + e.getMessage());
+            }
+        });
 
         Parent root = loader.load();
         stage.setScene(new Scene(root));

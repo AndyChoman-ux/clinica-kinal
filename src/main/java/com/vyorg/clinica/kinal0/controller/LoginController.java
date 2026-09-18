@@ -1,22 +1,20 @@
 package main.java.com.vyorg.clinica.kinal0.controller;
 
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import main.java.com.vyorg.clinica.kinal0.dto.request.LoginDTORequest;
+import main.java.com.vyorg.clinica.kinal0.dto.response.LoginDTOResponse;
+import main.java.com.vyorg.clinica.kinal0.service.AccesoService;
 import main.java.com.vyorg.clinica.kinal0.util.SceneManager;
 
-/**
- * Controlador de la vista de login (login.fxml).
- *
- * Por ahora solo valida que los campos no vengan vacíos y navega al
- * dashboard mediante el SceneManager. La autenticación real contra la
- * base de datos (usando las capas service/repository/model y BCrypt,
- * que ya están en el proyecto) se implementará más adelante, cuando se
- * trabaje el resto de requisitos del proyecto (expedientes clínicos).
- */
-public class LoginController {
+public class LoginController implements Initializable {
 
+    private final AccesoService accesoService;
     private final SceneManager sceneManager;
 
     @FXML
@@ -25,8 +23,13 @@ public class LoginController {
     @FXML
     private PasswordField campoPassword;
 
-    public LoginController(SceneManager sceneManager) {
+    public LoginController(AccesoService accesoService, SceneManager sceneManager) {
+        this.accesoService = accesoService;
         this.sceneManager = sceneManager;
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
     }
 
     @FXML
@@ -40,10 +43,14 @@ public class LoginController {
             return;
         }
 
-        // TODO: reemplazar esta validación temporal por la autenticación real
-        // (AuthService -> UsuarioRepository -> DatabaseConnection + BCrypt).
         try {
+            LoginDTOResponse response = accesoService.login(new LoginDTORequest(usuario, password));
+            sceneManager.showAlertInfo("Bienvenido, " + response.getNombreCompleto(),
+                    "Inicio de sesión correcto", "Rol: " + response.getNombreRol(), AlertType.INFORMATION);
             sceneManager.showDashboardView();
+        } catch (RuntimeException e) {
+            sceneManager.showAlertInfo("Acceso denegado", "No se pudo iniciar sesión",
+                    e.getMessage(), AlertType.WARNING);
         } catch (Exception e) {
             sceneManager.showAlertInfo("Error", "No se pudo abrir el panel principal",
                     e.getMessage(), AlertType.ERROR);
