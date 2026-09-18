@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="600.0" prefWidth="800.0"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="main.java.com.vyorg.clinica.kinal0.controller.PacienteController">
+    <top>
+        <HBox spacing="10.0" alignment="CENTER_LEFT">
+            <padding>
+                <Insets top="15.0" right="15.0" bottom="10.0" left="15.0"/>
+            </padding>
+            <Label text="Pacientes" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+            <TextField fx:id="campoBuscar" promptText="Buscar por nombre..." HBox.hgrow="ALWAYS"/>
+            <Button text="Buscar" onAction="#buscarPacientes"/>
+            <Button text="Volver" onAction="#volver"/>
+        </HBox>
+    </top>
+    <center>
+        <TableView fx:id="tablaPacientes" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="colId" text="ID" prefWidth="40.0"/>
+                <TableColumn fx:id="colNombre" text="Nombre completo" prefWidth="180.0"/>
+                <TableColumn fx:id="colFechaNacimiento" text="Nacimiento" prefWidth="100.0"/>
+                <TableColumn fx:id="colGenero" text="Género" prefWidth="70.0"/>
+                <TableColumn fx:id="colTelefono" text="Teléfono" prefWidth="100.0"/>
+                <TableColumn fx:id="colCorreo" text="Correo" prefWidth="150.0"/>
+                <TableColumn fx:id="colTipoSangre" text="Tipo sangre" prefWidth="80.0"/>
+            </columns>
+        </TableView>
+    </center>
+    <bottom>
+        <VBox spacing="8.0">
+            <padding>
+                <Insets top="10.0" right="15.0" bottom="15.0" left="15.0"/>
+            </padding>
+            <GridPane hgap="10.0" vgap="8.0">
+                <Label text="Nombre completo:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="campoNombre" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label text="Fecha nacimiento:" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                <DatePicker fx:id="campoFechaNacimiento" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+
+                <Label text="Género:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="comboGenero" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                <Label text="Tipo de sangre:" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                <ComboBox fx:id="comboTipoSangre" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+
+                <Label text="Teléfono:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <TextField fx:id="campoTelefono" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                <Label text="Correo:" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+                <TextField fx:id="campoCorreo" GridPane.rowIndex="2" GridPane.columnIndex="3"/>
+
+                <Label text="Dirección:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <TextField fx:id="campoDireccion" GridPane.rowIndex="3" GridPane.columnIndex="1"
+                           GridPane.columnSpan="3"/>
+            </GridPane>
+            <HBox spacing="10.0">
+                <Button text="Nuevo" onAction="#nuevoPaciente"/>
+                <Button text="Guardar" onAction="#guardarPaciente"/>
+                <Button text="Eliminar" onAction="#eliminarPaciente"/>
+            </HBox>
+        </VBox>
+    </bottom>
+</BorderPane>
