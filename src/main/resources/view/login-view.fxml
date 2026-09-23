@@ -2,26 +2,107 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="405.0" prefWidth="622.0" spacing="10.0" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.com.vyorg.clinica.kinal0.controller.LoginController">
-    <padding>
-        <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
-    </padding>
 
-    <Label text="Iniciar sesión" />
-
-    <Label text="Usuario o correo" />
-    <TextField fx:id="campoUsuario" />
-
-    <Label text="Contraseña" />
-    <PasswordField fx:id="campoPassword" />
-
-    <Button onAction="#iniciarSesion" text="Ingresar" />
-    <Button onAction="#irARegistro" text="Crear cuenta" />
-    <Button fx:id="botonRecuperar" onAction="#irARecuperarPassword" text="¿Olvidaste tu contraseña?" visible="false" managed="false" />
-
-</VBox>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="805.0" stylesheets="@../ccs/login.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <HBox alignment="CENTER_LEFT" prefHeight="118.0" prefWidth="805.0" styleClass="login-header" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+         </padding>
+         <children>
+            <StackPane prefHeight="70.0" prefWidth="75.0">
+               <children>
+                  <ImageView fitHeight="65.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/icono.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </StackPane>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label prefHeight="33.0" prefWidth="75.0" style="-fx-text-fill: #1f3d34; -fx-font-size: 24px; -fx-font-weight: bold;" text="Clinica" wrapText="true" />
+                  <Label prefHeight="27.0" prefWidth="66.0" style="-fx-text-fill: #1f3d34; -fx-font-size: 24px; -fx-font-weight: bold;" text="Kinal" wrapText="true" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <StackPane prefHeight="510.0" prefWidth="785.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="525.0" fitWidth="809.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../img/fondo-dashboar.jpg" />
+               </image>
+            </ImageView>
+            <VBox prefHeight="411.0" prefWidth="452.0" spacing="14.0" styleClass="login-card">
+               <padding>
+                  <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+               </padding>
+               <StackPane.margin>
+                  <Insets bottom="45.0" left="125.0" right="125.0" top="45.0" />
+               </StackPane.margin>
+               <children>
+                  <Label styleClass="login-title" text="Bienvenido al Portal del Paciente">
+                     <VBox.margin>
+                        <Insets left="50.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label prefHeight="26.0" prefWidth="354.0" styleClass="login-subtitle" text="Gestione sus citas, resultados y bienestar">
+                     <VBox.margin>
+                        <Insets left="35.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="359.0" spacing="8.0" styleClass="input-row">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <children>
+                        <Label styleClass="input-icon" text="👤" />
+                        <TextField prefHeight="44.0" prefWidth="336.0" promptText="Nombre de Usuario o Correo Electrónico" styleClass="text-field-flat" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="40.0" layoutY="115.0" prefHeight="19.0" prefWidth="465.0" spacing="8.0" styleClass="input-row">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <children>
+                        <Label styleClass="input-icon" text="🔒" />
+                        <TextField prefHeight="44.0" prefWidth="336.0" promptText="Contraseña" styleClass="text-field-flat" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="412.0" spacing="75.0">
+                     <children>
+                        <CheckBox mnemonicParsing="false" styleClass="checkbox-row-label" text="Recordar credenciales" />
+                        <Hyperlink alignment="CENTER_RIGHT" prefHeight="19.0" prefWidth="219.0" text="Recuperar contraseña" HBox.hgrow="ALWAYS">
+                           <padding>
+                              <Insets left="50.0" />
+                           </padding>
+                        </Hyperlink>
+                     </children>
+                  </HBox>
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="42.0" styleClass="but" text="INICIAR SESIÓN" />
+                  <HBox alignment="CENTER" prefHeight="33.0" prefWidth="443.0">
+                     <children>
+                        <Label alignment="CENTER" style="-fx-font-size: 12px;    -fx-text-fill: #6b7a76;;" text="¿Aún no tiene cuenta?" />
+                        <Hyperlink prefHeight="23.0" prefWidth="136.0" text="Regístrese Aquí" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
+   </center>
+</BorderPane>

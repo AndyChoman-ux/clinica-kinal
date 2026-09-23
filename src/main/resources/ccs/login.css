@@ -1,0 +1,117 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 23 sept 2026, 08:59:32
+    Author     : Calate
+*/
+
+.login-header {
+    -fx-background-color: linear-gradient(to right, #cfe9df, #a9d7c4);
+}
+.login-logo-circle {
+    -fx-background-color: #4CAF94;
+    -fx-background-radius: 50%;
+    -fx-min-width: 34;  -fx-min-height: 34;
+    -fx-max-width: 34;  -fx-max-height: 34;
+}
+.login-logo-icon {
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+.login-logo-text {
+    -fx-text-fill: #1f3d34;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+ 
+.login-bg {
+    -fx-background-color: #e9e3d8;
+    /* Para la foto de la recepción, descomenta y ajusta la ruta:*/
+    -fx-background-image: url('recepcion.jpg');
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+    
+}
+ 
+.login-card {
+    -fx-background-color: #EAF4ED;
+    -fx-background-radius: 16;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 20, 0, 0, 6);
+}
+.login-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #16332b;
+}
+.login-subtitle {
+    -fx-font-size: 17px;
+    -fx-text-fill: #6b7a76;
+
+}
+ 
+.input-row {
+    -fx-background-color: white;
+    -fx-background-radius: 8;
+    -fx-border-color: #d8e2df;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+}
+.input-icon {
+    -fx-text-fill: #7a938c;
+    -fx-font-size: 14px;
+}
+.text-field-flat {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-font-size: 13px;
+}
+ 
+.link-text {
+    -fx-text-fill: #3f9e88;
+    -fx-font-size: 12px;
+    -fx-cursor: hand;
+}
+.checkbox-row-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: #4b5b57;
+}
+ 
+.btn-login {
+    -fx-background-color: #3f9e88;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 24;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+}
+.btn-login:hover {
+    -fx-background-color: #368a76;
+}
+ 
+.button {
+    -fx-background-color: #458B74; 
+    -fx-text-fill: white;             
+    -fx-font-weight: bold;           
+    -fx-background-radius: 20px;     
+    -fx-cursor: hand;                 
+    -fx-padding: 8px 20px;          
+}
+/* Efecto cuando pasas el mouse por encima */
+.button:hover {
+    -fx-background-color: #3b7662;
+}
+ 
+.social-btn {
+    -fx-background-color: white;
+    -fx-background-radius: 50%;
+    -fx-border-color: #d8e2df;
+    -fx-border-radius: 50%;
+    -fx-border-width: 1;
+    -fx-min-width: 34;  -fx-min-height: 34;
+    -fx-max-width: 34;  -fx-max-height: 34;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+}
