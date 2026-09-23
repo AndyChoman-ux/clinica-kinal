@@ -22,5 +22,6 @@
 
     <Button onAction="#iniciarSesion" text="Ingresar" />
     <Button onAction="#irARegistro" text="Crear cuenta" />
+    <Button fx:id="botonRecuperar" onAction="#irARecuperarPassword" text="¿Olvidaste tu contraseña?" visible="false" managed="false" />
 
 </VBox>

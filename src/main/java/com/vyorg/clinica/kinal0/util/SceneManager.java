@@ -8,10 +8,13 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import main.java.com.vyorg.clinica.kinal0.controller.DashboardController;
 import main.java.com.vyorg.clinica.kinal0.controller.LoginController;
+import main.java.com.vyorg.clinica.kinal0.controller.RecuperarController;
 import main.java.com.vyorg.clinica.kinal0.controller.RegistroController;
 import main.java.com.vyorg.clinica.kinal0.repository.AccesoRepository;
+import main.java.com.vyorg.clinica.kinal0.repository.RecuperarRepository;
 import main.java.com.vyorg.clinica.kinal0.repository.RegistroRepository;
 import main.java.com.vyorg.clinica.kinal0.service.AccesoService;
+import main.java.com.vyorg.clinica.kinal0.service.RecuperarService;
 import main.java.com.vyorg.clinica.kinal0.service.RegistroService;
 
 public class SceneManager {
@@ -63,6 +66,28 @@ public class SceneManager {
         Parent root = loader.load();
         stage.setScene(new Scene(root));
         stage.setTitle("Clínica - Crear cuenta");
+        stage.show();
+    }
+
+    public void showRecuperarView() throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/resources/view/recuperar-view.fxml"));
+
+        loader.setControllerFactory(clazz -> {
+            if (clazz == RecuperarController.class) {
+                RecuperarRepository recuperarRepository = new RecuperarRepository();
+                RecuperarService recuperarService = new RecuperarService(recuperarRepository);
+                return new RecuperarController(recuperarService, this);
+            }
+            try {
+                return clazz.getDeclaredConstructor().newInstance();
+            } catch (Exception e) {
+                throw new RuntimeException("Error al crear el controlador: " + e.getMessage());
+            }
+        });
+
+        Parent root = loader.load();
+        stage.setScene(new Scene(root));
+        stage.setTitle("Clínica - Restablecer contraseña");
         stage.show();
     }
 
