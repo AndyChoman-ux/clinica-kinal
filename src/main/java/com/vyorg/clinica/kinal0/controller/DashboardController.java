@@ -41,6 +41,14 @@ private void irAPacientes() {
         sceneManager.showAlertInfo("Error", "No se pudo abrir Pacientes", e.getMessage(), AlertType.ERROR);
     }
 }
+@FXML
+private void irAUsuarios() {
+    try {
+        sceneManager.showUsuariosView();
+    } catch (Exception e) {
+        sceneManager.showAlertInfo("Error", "No se pudo abrir Administrar usuarios", e.getMessage(), AlertType.ERROR);
+    }
+}
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
