@@ -18,9 +18,9 @@
             <Label text="Panel principal - Gestor de Expedientes Clínicos"/>
             <Label fx:id="lblUsuario" text="Usuario: -"/>
             <Label fx:id="lblRol" text="Rol: -"/>
-          <Button fx:id="btnAdministrarUsuarios" text="Administrar usuarios"/>
-          <Button text="Cerrar sesión" onAction="#cerrarSesion"/>
-          <Button text="Pacientes" onAction="#irAPacientes"/>
+            <Button fx:id="btnAdministrarUsuarios" text="Administrar usuarios" onAction="#irAUsuarios"/>
+            <Button text="Cerrar sesión" onAction="#cerrarSesion"/>
+            <Button text="Pacientes" onAction="#irAPacientes"/>
         </VBox>
     </center>
 </BorderPane>
