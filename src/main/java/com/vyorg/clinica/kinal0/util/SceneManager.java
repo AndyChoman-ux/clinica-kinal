@@ -16,6 +16,9 @@ import main.java.com.vyorg.clinica.kinal0.controller.PacienteController;
 import main.java.com.vyorg.clinica.kinal0.repository.PacienteRepository;
 import main.java.com.vyorg.clinica.kinal0.service.PacienteService;
 import main.java.com.vyorg.clinica.kinal0.service.RegistroService;
+import main.java.com.vyorg.clinica.kinal0.controller.UsuarioController;
+import main.java.com.vyorg.clinica.kinal0.repository.UsuarioRepository;
+import main.java.com.vyorg.clinica.kinal0.service.UsuarioService;
 
 
 public class SceneManager {
@@ -99,6 +102,28 @@ public class SceneManager {
     Parent root = loader.load();
     stage.setScene(new Scene(root));
     stage.setTitle("Clínica - Pacientes");
+    stage.show();
+}
+    
+    public void showUsuariosView() throws Exception {
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/resources/view/usuario.fxml"));
+
+    loader.setControllerFactory(clazz -> {
+        if (clazz == UsuarioController.class) {
+            UsuarioRepository usuarioRepository = new UsuarioRepository();
+            UsuarioService usuarioService = new UsuarioService(usuarioRepository);
+            return new UsuarioController(usuarioService, this);
+        }
+        try {
+            return clazz.getDeclaredConstructor().newInstance();
+        } catch (Exception e) {
+            throw new RuntimeException("Error al crear el controlador: " + e.getMessage());
+        }
+    });
+
+    Parent root = loader.load();
+    stage.setScene(new Scene(root));
+    stage.setTitle("Clínica - Usuarios");
     stage.show();
 }
 
