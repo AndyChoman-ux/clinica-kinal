@@ -1,0 +1,151 @@
+/* ============================================================
+   PALETA CLÍNICA KINAL
+   Sidebar:        degradado #CFE9DF -> #A9D7C4
+   Verde acento:   #3F9E88  (botón "Administrar usuarios", logo)
+   Texto oscuro:   #16332B
+   Texto sidebar:  #2D5449
+   ============================================================ */
+
+.root {
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* ---------- SIDEBAR ---------- */
+.sidebar {
+    -fx-background-color: linear-gradient(to bottom, #cfe9df, #a9d7c4);
+}
+
+.logo-circle {
+    -fx-background-color: #4CAF94;
+    -fx-background-radius: 50%;
+    -fx-min-width: 34;  -fx-min-height: 34;
+    -fx-max-width: 34;  -fx-max-height: 34;
+}
+.logo-icon {
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+.logo-text {
+    -fx-text-fill: #1f3d34;
+    -fx-font-size: 23px;
+    -fx-font-weight: bold;
+    -fx-line-spacing: -2;
+}
+
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #2d5449;
+    -fx-font-size: 13px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 10 12 10 12;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+}
+.nav-button:hover {
+    -fx-background-color: rgba(255,255,255,0.45);
+}
+.nav-button-selected {
+    -fx-background-color: white;
+    -fx-text-fill: #1f8a72;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+}
+
+/* ---------- BARRA SUPERIOR ---------- */
+.header-bar {
+    -fx-background-color: transparent;
+}
+.btn-logout {
+    -fx-background-color: white;
+    -fx-text-fill: #2d5449;
+    -fx-background-radius: 18;
+    -fx-padding: 6 16 6 16;
+    -fx-font-size: 12px;
+    -fx-cursor: hand;
+}
+.avatar-circle {
+    -fx-background-color: #dfe6e3;
+    -fx-background-radius: 50%;
+    -fx-min-width: 34;  -fx-min-height: 34;
+    -fx-max-width: 34;  -fx-max-height: 34;
+}
+.bell-icon {
+    -fx-font-size: 16px;
+}
+
+/* ---------- ÁREA DE CONTENIDO ---------- */
+.background-image {
+    -fx-background-color: #ece6da;
+    /* Para usar la foto de la clínica como fondo, descomenta y ajusta la ruta:*/
+    -fx-background-image: url('hospital.jpg');
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+    
+}
+
+.info-card {
+    -fx-background-color: #CCE8E0;
+    -fx-background-radius: 14;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 3);
+}
+.card-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #16332b;
+}
+.card-text {
+    -fx-font-size: 14px;
+    -fx-text-fill: #16332b;
+}
+
+.btn-primary {
+    -fx-background-color: #3f9e88;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 14;
+    -fx-font-size: 14px;
+    -fx-text-alignment: center;
+    -fx-cursor: hand;
+}
+.btn-primary:hover {
+    -fx-background-color: #368a76;
+}
+
+.btn-pacientes {
+    -fx-background-color: rgba(255,255,255,0.95);
+    -fx-text-fill: #16332b;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 28;
+    -fx-border-color: #cfd8d5;
+    -fx-border-radius: 28;
+    -fx-border-width: 1;
+    -fx-cursor: hand;
+}
+.btn-pacientes:hover {
+    -fx-background-color: #f2f2f2;
+}
+
+.btn-cerrar{
+     -fx-background-color: #3f9e88;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-text-alignment: center;
+    -fx-cursor: hand;
+}
+
+.btn-cerrar:hover {
+     -fx-background-color: #368a76;
+}
+
+.btn-inicio {
+    -fx-background-color: rgba(255, 255, 255, 0.45);
+-fx-background-radius: 20px;
+-fx-border-radius: 20px;
+-fx-border-color: rgba(255, 255, 255, 0.7);
+-fx-border-width: 1px;
+-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.15), 10, 0, 0, 4);
+    
+}
