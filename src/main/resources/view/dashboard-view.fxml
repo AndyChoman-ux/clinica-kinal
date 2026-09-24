@@ -70,7 +70,12 @@
                         <Label fx:id="lblRol" styleClass="top-info-text" text="Rol: -" />
                         <HBox HBox.hgrow="ALWAYS" />
                         <Button mnemonicParsing="false" onAction="#cerrarSesion" styleClass="btn-cerrar" text="Cerrar sesion" />
-                        <Button mnemonicParsing="false" style="-fx-background-color: transparent; -fx-text-fill: #2d5449; -fx-font-size: 20px; -fx-cursor: hand;" text="🔔" />
+                        <StackPane fx:id="cajaCampana">
+                           <children>
+                              <Button fx:id="btnCampana" mnemonicParsing="false" onAction="#abrirNotificaciones" style="-fx-background-color: transparent; -fx-text-fill: #2d5449; -fx-font-size: 20px; -fx-cursor: hand;" text="🔔" />
+                              <Label fx:id="lblBadgeNotificaciones" managed="false" styleClass="badge-notificaciones" text="0" visible="false" StackPane.alignment="TOP_RIGHT" />
+                           </children>
+                        </StackPane>
                      </children>
                   </HBox>
                </top>

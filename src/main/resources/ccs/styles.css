@@ -1,16 +1,7 @@
-/* ============================================================
-   PALETA CLÍNICA KINAL
-   Sidebar:        degradado #CFE9DF -> #A9D7C4
-   Verde acento:   #3F9E88  (botón "Administrar usuarios", logo)
-   Texto oscuro:   #16332B
-   Texto sidebar:  #2D5449
-   ============================================================ */
-
 .root {
     -fx-font-family: "Segoe UI", Arial, sans-serif;
 }
 
-/* ---------- SIDEBAR ---------- */
 .sidebar {
     -fx-background-color: linear-gradient(to bottom, #cfe9df, #a9d7c4);
 }
@@ -52,7 +43,6 @@
     -fx-background-radius: 10;
 }
 
-/* ---------- BARRA SUPERIOR ---------- */
 .header-bar {
     -fx-background-color: transparent;
 }
@@ -74,7 +64,6 @@
     -fx-font-size: 16px;
 }
 
-/* ---------- ÁREA DE CONTENIDO ---------- */
 .background-image {
     -fx-background-color: #ece6da;
     /* Para usar la foto de la clínica como fondo, descomenta y ajusta la ruta:*/
@@ -157,7 +146,6 @@
     -fx-background-position: center center;
 }
 
-/* ---------- PANELES CRUD (Pacientes, Usuarios) ---------- */
 .clinic-toolbar {
     -fx-background-color: linear-gradient(to right, #cfe9df, #a9d7c4);
 }
@@ -241,7 +229,6 @@
     -fx-background-color: #c94a4a;
 }
 
-/* ---------- ALERTAS ---------- */
 .clinic-alert {
     -fx-background-color: #eaf4ed;
 }
@@ -278,7 +265,6 @@
     -fx-background-color: #a83b3b;
 }
 
-/* ---------- SIDEBAR OSCURO (nuevo dashboard) ---------- */
 .sidebar-dark {
     -fx-background-color: #16332b;
 }
@@ -307,7 +293,6 @@
     -fx-background-radius: 10;
 }
 
-/* ---------- BARRA SUPERIOR DEL NUEVO DASHBOARD ---------- */
 .top-info-bar {
     -fx-background-color: linear-gradient(to right, #cfe9df, #a9d7c4);
 }
@@ -325,7 +310,6 @@
     -fx-text-fill: #2d5449;
 }
 
-/* ---------- TARJETAS DE ESTADÍSTICAS ---------- */
 .stat-card {
     -fx-background-color: #d7ecdf;
     -fx-background-radius: 14;
@@ -348,4 +332,45 @@
 .stat-sublabel {
     -fx-font-size: 11px;
     -fx-text-fill: #4b5b57;
+}
+.badge-notificaciones {
+    -fx-background-color: #e35d5d;
+    -fx-background-radius: 20;
+    -fx-text-fill: white;
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-padding: 1 5 1 5;
+}
+.panel-notificaciones {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-border-color: #d8e2df;
+    -fx-border-radius: 10;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.18), 12, 0, 0, 3);
+}
+.panel-notificaciones-titulo {
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-text-fill: #16332b;
+}
+.panel-notificaciones-vacio {
+    -fx-text-fill: #6b7a76;
+    -fx-font-size: 12px;
+}
+.panel-notificaciones-item {
+    -fx-background-color: #f7faf9;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+}
+.panel-notificaciones-item:hover {
+    -fx-background-color: #e2ece9;
+}
+.panel-notificaciones-mensaje {
+    -fx-text-fill: #16332b;
+    -fx-font-size: 12px;
+}
+.panel-notificaciones-fecha {
+    -fx-text-fill: #6b7a76;
+    -fx-font-size: 10px;
 }
