@@ -121,8 +121,7 @@ public class SceneManager {
 
     public void showDashboardView() throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/resources/view/dashboard-view.fxml"));
-        loader.setControllerFactory(c -> new DashboardController(this, new PacienteRepository(), new UsuarioRepository()));
-
+        loader.setControllerFactory(c -> new DashboardController(this, new PacienteRepository(), new UsuarioRepository(), new CitaRepository()));  
         Parent root = loader.load();
         stage.setScene(new Scene(root, ANCHO_VENTANA, ALTO_VENTANA));
         stage.setTitle("Clínica - Panel principal");
