@@ -12,149 +12,138 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<StackPane xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane fx:id="rootPane" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.com.vyorg.clinica.kinal0.controller.DashboardController">
    <children>
-      <ImageView fitHeight="476.0" fitWidth="846.0" pickOnBounds="true">
+      <ImageView fx:id="imagenFondo" pickOnBounds="true">
          <image>
             <Image url="@../img/fondo-dashboar.jpg" />
          </image>
       </ImageView>
-      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="472.0" prefWidth="851.0" stylesheets="@../ccs/styles.css">
+      <BorderPane stylesheets="@../ccs/styles.css">
          <left>
-            <VBox prefHeight="474.0" prefWidth="195.0" style="-fx-background-color: #E2ECE9;;" BorderPane.alignment="CENTER">
+            <VBox prefWidth="210.0" styleClass="sidebar-dark" BorderPane.alignment="CENTER">
                <children>
-                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" spacing="10.0">
                      <padding>
-                        <Insets bottom="20.0" left="2.0" right="20.0" top="20.0" />
+                        <Insets bottom="20.0" left="15.0" right="15.0" top="20.0" />
                      </padding>
                      <children>
-                        <ImageView fitHeight="69.0" fitWidth="58.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../img/icono.png" />
                            </image>
                         </ImageView>
-                        <Label prefHeight="171.0" prefWidth="85.0" style="Wrap Text: true, Style Class: logo-text;" styleClass="logo-text" text="Clinica kinal" wrapText="true">
-                           <font>
-                              <Font size="1.0" />
-                           </font>
-                        </Label>
+                        <Label styleClass="logo-text-light" text="Clínica&#10;kinal" wrapText="true" />
                      </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
                   </HBox>
-                  <VBox prefHeight="200.0" prefWidth="100.0" spacing="8.0">
+                  <VBox spacing="6.0">
                      <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="15.0" />
                      </padding>
                      <children>
                         <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="🏠 Inicio">
                            <styleClass>
-                              <String fx:value="nav-button" />
-                              <String fx:value="nav-button-selected" />
+                              <String fx:value="nav-button-dark" />
+                              <String fx:value="nav-button-dark-selected" />
                            </styleClass>
                         </Button>
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="nav-button" text="👤 Usuarios" />
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="nav-button" text="🗓 Citas" />
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="nav-button" text="📄 Expedientes" />
-                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" styleClass="nav-button" text="📊 Estadísticas" />
+                        <Button fx:id="btnMenuUsuarios" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#irAUsuarios" styleClass="nav-button-dark" text="👤 Usuarios" />
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#irACitas" styleClass="nav-button-dark" text="🗓 Citas" />
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#irAExpedientes" styleClass="nav-button-dark" text="📄 Expedientes" />
+                        <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#irAEstadisticas" styleClass="nav-button-dark" text="📊 Estadísticas" />
                      </children>
                   </VBox>
                </children>
             </VBox>
          </left>
          <center>
-            <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <BorderPane BorderPane.alignment="CENTER">
                <top>
-                  <HBox alignment="CENTER_RIGHT" prefHeight="77.0" prefWidth="657.0" spacing="15.0" styleClass="sidebar" BorderPane.alignment="CENTER">
+                  <HBox alignment="CENTER_LEFT" spacing="14.0" styleClass="top-info-bar" BorderPane.alignment="CENTER">
                      <padding>
-                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                        <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
                      </padding>
                      <children>
-                        <Button mnemonicParsing="false" style="-fx-background-color: #3f9e88; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-size: 14px; -fx-text-alignment: center; -fx-cursor: hand; -fx-background-color: #368a76;" styleClass="btn-cerrar" text="Cerrar sesion" />
-                        <Button mnemonicParsing="false" prefHeight="63.0" prefWidth="66.0" style="-fx-background-color: transparent; -fx-text-fill: #2d5449; -fx-font-size: 25px; -fx-alignment: CENTER; -fx-padding: 10 12 10 12; -fx-background-radius: 8; -fx-cursor: hand;" text="🔔" />
+                        <Label styleClass="top-info-title" text="Expedientes Clínicos: Panel Principal" />
+                        <Label styleClass="top-info-sep" text="|" />
+                        <Label fx:id="lblUsuario" styleClass="top-info-text" text="Usuario: -" />
+                        <Label fx:id="lblRol" styleClass="top-info-text" text="Rol: -" />
+                        <HBox HBox.hgrow="ALWAYS" />
+                        <Button mnemonicParsing="false" onAction="#cerrarSesion" styleClass="btn-cerrar" text="Cerrar sesion" />
+                        <Button mnemonicParsing="false" style="-fx-background-color: transparent; -fx-text-fill: #2d5449; -fx-font-size: 20px; -fx-cursor: hand;" text="🔔" />
                      </children>
                   </HBox>
                </top>
                <center>
-                  <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                  <StackPane BorderPane.alignment="CENTER">
                      <children>
-                        <VBox prefHeight="390.0" prefWidth="681.0" spacing="20.0">
+                        <VBox spacing="20.0">
                            <padding>
-                              <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                              <Insets bottom="30.0" left="30.0" right="30.0" top="25.0" />
                            </padding>
                            <children>
-                              <HBox prefHeight="125.0" prefWidth="529.0" spacing="20.0">
+                              <HBox spacing="15.0">
                                  <children>
-                                    <VBox maxWidth="480.0" prefHeight="149.0" prefWidth="308.0" spacing="20.0" styleClass="info-card">
+                                    <VBox alignment="CENTER" prefHeight="60.0" prefWidth="170.0" styleClass="btn-inicio">
                                        <children>
-                                          <VBox prefHeight="21.0" prefWidth="251.0" spacing="5.0">
-                                             <children>
-                                                <Label prefHeight="23.0" prefWidth="186.0" styleClass="card-title" text="Expedientes Clinicos" />
-                                                <Label styleClass="card-title" text="Panel principal -Gestor de" />
-                                             </children>
-                                             <VBox.margin>
-                                                <Insets left="10.0" top="10.0" />
-                                             </VBox.margin>
-                                          </VBox>
-                                          <Label styleClass="card-title" text="Usuario:">
-                                             <VBox.margin>
-                                                <Insets left="10.0" />
-                                             </VBox.margin>
-                                          </Label>
-                                          <Label styleClass="card-title" text="Rol:">
-                                             <VBox.margin>
-                                                <Insets left="10.0" />
-                                             </VBox.margin>
-                                          </Label>
+                                          <Button mnemonicParsing="false" onAction="#irAPacientes" styleClass="btn-pacientes" text="Pacientes" />
                                        </children>
-                                       <HBox.margin>
-                                          <Insets />
-                                       </HBox.margin>
                                     </VBox>
-                                    <VBox alignment="CENTER" prefHeight="133.0" prefWidth="247.0" style="-fx-background-radius: 14; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 3); -fx-background-color: #CCE8E0;">
+                                    <VBox fx:id="cajaAdministrarUsuarios" alignment="CENTER" prefHeight="60.0" prefWidth="210.0" styleClass="btn-inicio">
                                        <children>
-                                          <Button minHeight="69.0" minWidth="150.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="166.0" styleClass="btn-primary" wrapText="true">
-                                             <font>
-                                                <Font size="59.0" />
-                                             </font>
-                                             <graphic>
-                                                <VBox prefHeight="71.0" prefWidth="191.0">
-                                                   <children>
-                                                      <Label alignment="CENTER" prefHeight="36.0" prefWidth="156.0" text="Administrar " textFill="#fff9f9">
-                                                         <font>
-                                                            <Font size="24.0" />
-                                                         </font>
-                                                      </Label>
-                                                      <Label alignment="CENTER" prefHeight="20.0" prefWidth="149.0" text="Usuarios" textFill="#fffafa">
-                                                         <font>
-                                                            <Font size="24.0" />
-                                                         </font>
-                                                      </Label>
-                                                   </children>
-                                                </VBox>
-                                             </graphic>
-                                          </Button>
+                                          <Button fx:id="btnAdministrarUsuarios" mnemonicParsing="false" onAction="#irAUsuarios" styleClass="btn-pacientes" text="Administrar Usuarios" />
                                        </children>
                                     </VBox>
                                  </children>
-                                 <VBox.margin>
-                                    <Insets />
-                                 </VBox.margin>
                               </HBox>
-                              <HBox prefHeight="107.0" prefWidth="529.0">
+                              <HBox spacing="20.0">
                                  <children>
-                                    <VBox alignment="CENTER" prefHeight="115.0" prefWidth="270.0" styleClass="btn-inicio">
+                                    <HBox alignment="CENTER_LEFT" maxWidth="260.0" prefHeight="90.0" prefWidth="260.0" spacing="14.0" styleClass="stat-card">
+                                       <padding>
+                                          <Insets bottom="12.0" left="16.0" right="16.0" top="12.0" />
+                                       </padding>
                                        <children>
-                                          <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="168.0" styleClass="btn-pacientes" text="Pacientes ">
-                                             <VBox.margin>
-                                                <Insets />
-                                             </VBox.margin>
-                                          </Button>
+                                          <VBox alignment="CENTER" prefHeight="46.0" prefWidth="46.0" styleClass="stat-icon-box">
+                                             <children>
+                                                <Label text="👥">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                          <VBox spacing="2.0">
+                                             <children>
+                                                <Label fx:id="lblTotalPacientes" styleClass="stat-number" text="0" />
+                                                <Label styleClass="stat-label" text="Total de Pacientes" />
+                                                <Label styleClass="stat-sublabel" text="Total acumulado" />
+                                             </children>
+                                          </VBox>
                                        </children>
-                                    </VBox>
-                                    <VBox prefHeight="200.0" prefWidth="100.0" />
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" maxWidth="260.0" prefHeight="90.0" prefWidth="260.0" spacing="14.0" styleClass="stat-card">
+                                       <padding>
+                                          <Insets bottom="12.0" left="16.0" right="16.0" top="12.0" />
+                                       </padding>
+                                       <children>
+                                          <VBox alignment="CENTER" prefHeight="46.0" prefWidth="46.0" styleClass="stat-icon-box">
+                                             <children>
+                                                <Label text="🗂">
+                                                   <font>
+                                                      <Font size="20.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                          <VBox spacing="2.0">
+                                             <children>
+                                                <Label fx:id="lblTotalUsuarios" styleClass="stat-number" text="0" />
+                                                <Label styleClass="stat-label" text="Usuarios registrados" />
+                                                <Label styleClass="stat-sublabel" text="Total acumulado" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
                                  </children>
                               </HBox>
                            </children>

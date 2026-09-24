@@ -13,23 +13,23 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="600.0" prefWidth="800.0"
+<BorderPane prefHeight="600.0" prefWidth="800.0" stylesheets="@../ccs/styles.css"
             xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="main.java.com.vyorg.clinica.kinal0.controller.PacienteController">
     <top>
-        <HBox spacing="10.0" alignment="CENTER_LEFT">
+        <HBox spacing="10.0" alignment="CENTER_LEFT" styleClass="clinic-toolbar">
             <padding>
-                <Insets top="15.0" right="15.0" bottom="10.0" left="15.0"/>
+                <Insets top="15.0" right="15.0" bottom="15.0" left="15.0"/>
             </padding>
-            <Label text="Pacientes" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
-            <TextField fx:id="campoBuscar" promptText="Buscar por nombre..." HBox.hgrow="ALWAYS"/>
-            <Button text="Buscar" onAction="#buscarPacientes"/>
-            <Button text="Volver" onAction="#volver"/>
+            <Label text="Pacientes" styleClass="clinic-toolbar-title"/>
+            <TextField fx:id="campoBuscar" promptText="Buscar por nombre..." styleClass="clinic-search" HBox.hgrow="ALWAYS"/>
+            <Button text="Buscar" onAction="#buscarPacientes" styleClass="clinic-btn-secondary"/>
+            <Button text="Volver" onAction="#volver" styleClass="clinic-btn-secondary"/>
         </HBox>
     </top>
     <center>
-        <TableView fx:id="tablaPacientes" BorderPane.alignment="CENTER">
+        <TableView fx:id="tablaPacientes" styleClass="clinic-table" BorderPane.alignment="CENTER">
             <columns>
                 <TableColumn fx:id="colId" text="ID" prefWidth="40.0"/>
                 <TableColumn fx:id="colNombre" text="Nombre completo" prefWidth="180.0"/>
@@ -42,37 +42,37 @@
         </TableView>
     </center>
     <bottom>
-        <VBox spacing="8.0">
+        <VBox spacing="10.0" styleClass="clinic-form-panel">
             <padding>
-                <Insets top="10.0" right="15.0" bottom="15.0" left="15.0"/>
+                <Insets top="15.0" right="15.0" bottom="15.0" left="15.0"/>
             </padding>
-            <GridPane hgap="10.0" vgap="8.0">
-                <Label text="Nombre completo:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-                <TextField fx:id="campoNombre" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+            <GridPane hgap="12.0" vgap="10.0">
+                <Label text="Nombre completo:" styleClass="clinic-form-label" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="campoNombre" styleClass="clinic-field" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
 
-                <Label text="Fecha nacimiento:" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
-                <DatePicker fx:id="campoFechaNacimiento" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+                <Label text="Fecha nacimiento:" styleClass="clinic-form-label" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                <DatePicker fx:id="campoFechaNacimiento" styleClass="clinic-field" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
 
-                <Label text="Género:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-                <ComboBox fx:id="comboGenero" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                <Label text="Género:" styleClass="clinic-form-label" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="comboGenero" styleClass="clinic-field" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
 
-                <Label text="Tipo de sangre:" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
-                <ComboBox fx:id="comboTipoSangre" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+                <Label text="Tipo de sangre:" styleClass="clinic-form-label" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                <ComboBox fx:id="comboTipoSangre" styleClass="clinic-field" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
 
-                <Label text="Teléfono:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-                <TextField fx:id="campoTelefono" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                <Label text="Teléfono:" styleClass="clinic-form-label" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <TextField fx:id="campoTelefono" styleClass="clinic-field" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
 
-                <Label text="Correo:" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
-                <TextField fx:id="campoCorreo" GridPane.rowIndex="2" GridPane.columnIndex="3"/>
+                <Label text="Correo:" styleClass="clinic-form-label" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+                <TextField fx:id="campoCorreo" styleClass="clinic-field" GridPane.rowIndex="2" GridPane.columnIndex="3"/>
 
-                <Label text="Dirección:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
-                <TextField fx:id="campoDireccion" GridPane.rowIndex="3" GridPane.columnIndex="1"
+                <Label text="Dirección:" styleClass="clinic-form-label" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <TextField fx:id="campoDireccion" styleClass="clinic-field" GridPane.rowIndex="3" GridPane.columnIndex="1"
                            GridPane.columnSpan="3"/>
             </GridPane>
             <HBox spacing="10.0">
-                <Button text="Nuevo" onAction="#nuevoPaciente"/>
-                <Button text="Guardar" onAction="#guardarPaciente"/>
-                <Button text="Eliminar" onAction="#eliminarPaciente"/>
+                <Button text="Nuevo" onAction="#nuevoPaciente" styleClass="clinic-btn-secondary"/>
+                <Button text="Guardar" onAction="#guardarPaciente" styleClass="btn-primary"/>
+                <Button text="Eliminar" onAction="#eliminarPaciente" styleClass="clinic-btn-danger"/>
             </HBox>
         </VBox>
     </bottom>

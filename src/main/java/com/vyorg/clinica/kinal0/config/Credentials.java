@@ -6,6 +6,6 @@ public class Credentials {
 
     public static final String USER_DB="root";
 
-    public static final String PASS_DB="1234admin";
+    public static final String PASS_DB="14junio10AN-";
     
 }
