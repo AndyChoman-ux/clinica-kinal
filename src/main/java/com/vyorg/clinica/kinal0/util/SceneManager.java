@@ -199,7 +199,8 @@ public class SceneManager {
             if (clazz == ExpedienteController.class) {
                 ExpedienteService expedienteService = new ExpedienteService(new ExpedienteRepository());
                 PacienteService pacienteService = new PacienteService(new PacienteRepository());
-                return new ExpedienteController(expedienteService, pacienteService, this);
+                CitaRepository citaRepository = new CitaRepository();
+                return new ExpedienteController(expedienteService, pacienteService, citaRepository, this);
             }
             try {
                 return clazz.getDeclaredConstructor().newInstance();

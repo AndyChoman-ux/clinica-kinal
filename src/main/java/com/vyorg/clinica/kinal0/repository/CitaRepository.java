@@ -119,4 +119,21 @@ public class CitaRepository {
                 rs.getString("estado")
         );
     }
+    
+    public List<Cita> findByPaciente(int idPaciente) {
+    List<Cita> citas = new ArrayList<>();
+    String sql = "select " + CAMPOS + FROM + "where c.id_paciente = ? order by c.fecha desc, c.hora desc";
+
+    try (PreparedStatement pstm = DatabaseConnection.getDatabaseConnection().prepareStatement(sql)) {
+        pstm.setInt(1, idPaciente);
+        try (ResultSet rs = pstm.executeQuery()) {
+            while (rs.next()) {
+                citas.add(mapRow(rs));
+            }
+        }
+    } catch (SQLException e) {
+        System.out.println("Error al listar citas del paciente: " + e.getMessage());
+    }
+    return citas;
+}
 }
