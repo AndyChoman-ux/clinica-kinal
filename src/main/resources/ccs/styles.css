@@ -1,0 +1,351 @@
+/* ============================================================
+   PALETA CLÍNICA KINAL
+   Sidebar:        degradado #CFE9DF -> #A9D7C4
+   Verde acento:   #3F9E88  (botón "Administrar usuarios", logo)
+   Texto oscuro:   #16332B
+   Texto sidebar:  #2D5449
+   ============================================================ */
+
+.root {
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* ---------- SIDEBAR ---------- */
+.sidebar {
+    -fx-background-color: linear-gradient(to bottom, #cfe9df, #a9d7c4);
+}
+
+.logo-circle {
+    -fx-background-color: #4CAF94;
+    -fx-background-radius: 50%;
+    -fx-min-width: 34;  -fx-min-height: 34;
+    -fx-max-width: 34;  -fx-max-height: 34;
+}
+.logo-icon {
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+.logo-text {
+    -fx-text-fill: #1f3d34;
+    -fx-font-size: 23px;
+    -fx-font-weight: bold;
+    -fx-line-spacing: -2;
+}
+
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #2d5449;
+    -fx-font-size: 13px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 10 12 10 12;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+}
+.nav-button:hover {
+    -fx-background-color: rgba(255,255,255,0.45);
+}
+.nav-button-selected {
+    -fx-background-color: white;
+    -fx-text-fill: #1f8a72;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+}
+
+/* ---------- BARRA SUPERIOR ---------- */
+.header-bar {
+    -fx-background-color: transparent;
+}
+.btn-logout {
+    -fx-background-color: white;
+    -fx-text-fill: #2d5449;
+    -fx-background-radius: 18;
+    -fx-padding: 6 16 6 16;
+    -fx-font-size: 12px;
+    -fx-cursor: hand;
+}
+.avatar-circle {
+    -fx-background-color: #dfe6e3;
+    -fx-background-radius: 50%;
+    -fx-min-width: 34;  -fx-min-height: 34;
+    -fx-max-width: 34;  -fx-max-height: 34;
+}
+.bell-icon {
+    -fx-font-size: 16px;
+}
+
+/* ---------- ÁREA DE CONTENIDO ---------- */
+.background-image {
+    -fx-background-color: #ece6da;
+    /* Para usar la foto de la clínica como fondo, descomenta y ajusta la ruta:*/
+    -fx-background-image: url('hospital.jpg');
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+    
+}
+
+.info-card {
+    -fx-background-color: #CCE8E0;
+    -fx-background-radius: 14;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 3);
+}
+.card-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #16332b;
+}
+.card-text {
+    -fx-font-size: 14px;
+    -fx-text-fill: #16332b;
+}
+
+.btn-primary {
+    -fx-background-color: #3f9e88;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 14;
+    -fx-font-size: 14px;
+    -fx-text-alignment: center;
+    -fx-cursor: hand;
+}
+.btn-primary:hover {
+    -fx-background-color: #368a76;
+}
+
+.btn-pacientes {
+    -fx-background-color: rgba(255,255,255,0.95);
+    -fx-text-fill: #16332b;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 28;
+    -fx-border-color: #cfd8d5;
+    -fx-border-radius: 28;
+    -fx-border-width: 1;
+    -fx-cursor: hand;
+}
+.btn-pacientes:hover {
+    -fx-background-color: #f2f2f2;
+}
+
+.btn-cerrar{
+     -fx-background-color: #3f9e88;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-text-alignment: center;
+    -fx-cursor: hand;
+}
+
+.btn-cerrar:hover {
+     -fx-background-color: #368a76;
+}
+
+.btn-inicio {
+    -fx-background-color: rgba(255, 255, 255, 0.45);
+-fx-background-radius: 20px;
+-fx-border-radius: 20px;
+-fx-border-color: rgba(255, 255, 255, 0.7);
+-fx-border-width: 1px;
+-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.15), 10, 0, 0, 4);
+    
+}
+
+.dashboard-bg {
+    -fx-background-color: #e9e3d8;
+    -fx-background-image: url('../img/fondo-dashboar.jpg');
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+}
+
+/* ---------- PANELES CRUD (Pacientes, Usuarios) ---------- */
+.clinic-toolbar {
+    -fx-background-color: linear-gradient(to right, #cfe9df, #a9d7c4);
+}
+.clinic-toolbar-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #16332b;
+}
+.clinic-search {
+    -fx-background-color: white;
+    -fx-background-radius: 8;
+    -fx-border-color: #d8e2df;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+}
+.clinic-table {
+    -fx-background-color: white;
+    -fx-table-cell-border-color: transparent;
+}
+.clinic-table .column-header-background {
+    -fx-background-color: #e2ece9;
+}
+.clinic-table .column-header, .clinic-table .filler {
+    -fx-background-color: transparent;
+    -fx-size: 38px;
+}
+.clinic-table .column-header .label {
+    -fx-text-fill: #16332b;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+.clinic-table .table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #eef2f0 transparent;
+}
+.clinic-table .table-row-cell:odd {
+    -fx-background-color: #f7faf9;
+}
+.clinic-table .table-row-cell:selected {
+    -fx-background-color: #cce8e0;
+    -fx-text-fill: #16332b;
+}
+.clinic-form-panel {
+    -fx-background-color: #eaf4ed;
+}
+.clinic-form-label {
+    -fx-text-fill: #2d5449;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+.clinic-field {
+    -fx-background-color: white;
+    -fx-background-radius: 8;
+    -fx-border-color: #d8e2df;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+}
+.clinic-btn-secondary {
+    -fx-background-color: white;
+    -fx-text-fill: #2d5449;
+    -fx-font-weight: bold;
+    -fx-background-radius: 18;
+    -fx-border-color: #cfd8d5;
+    -fx-border-radius: 18;
+    -fx-border-width: 1;
+    -fx-cursor: hand;
+    -fx-padding: 6 18 6 18;
+}
+.clinic-btn-secondary:hover {
+    -fx-background-color: #f2f2f2;
+}
+.clinic-btn-danger {
+    -fx-background-color: #e35d5d;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 18;
+    -fx-cursor: hand;
+    -fx-padding: 6 18 6 18;
+}
+.clinic-btn-danger:hover {
+    -fx-background-color: #c94a4a;
+}
+
+/* ---------- ALERTAS ---------- */
+.clinic-alert {
+    -fx-background-color: #eaf4ed;
+}
+.clinic-alert .header-panel {
+    -fx-background-color: linear-gradient(to right, #cfe9df, #a9d7c4);
+}
+.clinic-alert .header-panel .label {
+    -fx-text-fill: #16332b;
+    -fx-font-weight: bold;
+    -fx-font-size: 15px;
+}
+.clinic-alert .content.label {
+    -fx-text-fill: #2d5449;
+    -fx-font-size: 13px;
+}
+.clinic-alert .button-bar .button {
+    -fx-background-color: #3f9e88;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 16;
+    -fx-cursor: hand;
+    -fx-padding: 6 18 6 18;
+}
+.clinic-alert .button-bar .button:hover {
+    -fx-background-color: #368a76;
+}
+.clinic-alert-error .header-panel {
+    -fx-background-color: linear-gradient(to right, #f3cccc, #eaa8a8);
+}
+.clinic-alert-error .button-bar .button {
+    -fx-background-color: #c94a4a;
+}
+.clinic-alert-error .button-bar .button:hover {
+    -fx-background-color: #a83b3b;
+}
+
+/* ---------- SIDEBAR OSCURO (nuevo dashboard) ---------- */
+.sidebar-dark {
+    -fx-background-color: #16332b;
+}
+.logo-text-light {
+    -fx-text-fill: white;
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-line-spacing: -2;
+}
+.nav-button-dark {
+    -fx-background-color: transparent;
+    -fx-text-fill: #cfe0da;
+    -fx-font-size: 13px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 10 12 10 12;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+}
+.nav-button-dark:hover {
+    -fx-background-color: rgba(255,255,255,0.08);
+}
+.nav-button-dark-selected {
+    -fx-background-color: rgba(255,255,255,0.12);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+}
+
+/* ---------- BARRA SUPERIOR DEL NUEVO DASHBOARD ---------- */
+.top-info-bar {
+    -fx-background-color: linear-gradient(to right, #cfe9df, #a9d7c4);
+}
+.top-info-title {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #16332b;
+}
+.top-info-sep {
+    -fx-text-fill: #5c766c;
+    -fx-font-size: 13px;
+}
+.top-info-text {
+    -fx-font-size: 13px;
+    -fx-text-fill: #2d5449;
+}
+
+/* ---------- TARJETAS DE ESTADÍSTICAS ---------- */
+.stat-card {
+    -fx-background-color: #d7ecdf;
+    -fx-background-radius: 14;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 8, 0, 0, 2);
+}
+.stat-icon-box {
+    -fx-background-color: #cfe9df;
+    -fx-background-radius: 10;
+}
+.stat-number {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #16332b;
+}
+.stat-label {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #16332b;
+}
+.stat-sublabel {
+    -fx-font-size: 11px;
+    -fx-text-fill: #4b5b57;
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane fx:id="rootPane" stylesheets="@../ccs/login.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.com.vyorg.clinica.kinal0.controller.EnConstruccionController">
+   <children>
+      <ImageView fx:id="imagenFondo" pickOnBounds="true">
+         <image>
+            <Image url="@../img/fondo-dashboar.jpg" />
+         </image>
+      </ImageView>
+      <VBox alignment="CENTER" maxHeight="220.0" maxWidth="380.0" prefHeight="220.0" prefWidth="380.0" spacing="14.0" styleClass="login-card">
+         <padding>
+            <Insets bottom="24.0" left="26.0" right="26.0" top="24.0" />
+         </padding>
+         <children>
+            <Label fx:id="lblTitulo" styleClass="login-title" text="Sección" />
+            <Label styleClass="login-subtitle" text="Esta sección está en construcción." wrapText="true" />
+            <Button mnemonicParsing="false" onAction="#volver" styleClass="btn-login" text="Volver al panel principal" />
+         </children>
+      </VBox>
+   </children>
+</StackPane>
