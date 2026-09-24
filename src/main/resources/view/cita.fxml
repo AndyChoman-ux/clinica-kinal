@@ -66,6 +66,8 @@
                 <Button text="Nueva" onAction="#nuevaCita" styleClass="clinic-btn-secondary"/>
                 <Button text="Guardar" onAction="#guardarCita" styleClass="btn-primary"/>
                 <Button text="Eliminar" onAction="#eliminarCita" styleClass="clinic-btn-danger"/>
+                <Button text="Imprimir" onAction="#imprimirCita" styleClass="clinic-btn-secondary"/>
+                <Button text="Exportar a PDF" onAction="#exportarCitaPDF" styleClass="clinic-btn-secondary"/>
             </HBox>
         </VBox>
     </bottom>

@@ -10,16 +10,21 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import main.java.com.vyorg.clinica.kinal0.model.Cita;
 import main.java.com.vyorg.clinica.kinal0.model.Expediente;
 import main.java.com.vyorg.clinica.kinal0.model.Paciente;
+import main.java.com.vyorg.clinica.kinal0.repository.CitaRepository;
 import main.java.com.vyorg.clinica.kinal0.service.ExpedienteService;
 import main.java.com.vyorg.clinica.kinal0.service.PacienteService;
+import main.java.com.vyorg.clinica.kinal0.util.ImpresionUtil;
 import main.java.com.vyorg.clinica.kinal0.util.SceneManager;
+import javafx.scene.layout.VBox;
 
 public class ExpedienteController implements Initializable {
 
     private final ExpedienteService expedienteService;
     private final PacienteService pacienteService;
+    private final CitaRepository citaRepository;
     private final SceneManager sceneManager;
 
     private Expediente expedienteSeleccionado;
@@ -35,9 +40,11 @@ public class ExpedienteController implements Initializable {
     @FXML private ComboBox<String> comboEstado;
     @FXML private TextField campoObservaciones;
 
-    public ExpedienteController(ExpedienteService expedienteService, PacienteService pacienteService, SceneManager sceneManager) {
+    public ExpedienteController(ExpedienteService expedienteService, PacienteService pacienteService,
+                                CitaRepository citaRepository, SceneManager sceneManager) {
         this.expedienteService = expedienteService;
         this.pacienteService = pacienteService;
+        this.citaRepository = citaRepository;
         this.sceneManager = sceneManager;
     }
 
@@ -106,6 +113,21 @@ public class ExpedienteController implements Initializable {
     }
 
     @FXML
+    private void imprimirExpediente() {
+        if (expedienteSeleccionado == null) {
+            sceneManager.showAlertInfo("Sin selección", "Elige un expediente",
+                    "Selecciona un expediente de la tabla para imprimirlo.", AlertType.WARNING);
+            return;
+        }
+        Paciente paciente = comboPaciente.getItems().stream()
+                .filter(p -> p.getIdPaciente() == expedienteSeleccionado.getIdPaciente())
+                .findFirst().orElse(null);
+        List<Cita> historial = citaRepository.findByPaciente(expedienteSeleccionado.getIdPaciente());
+        ImpresionUtil.mostrarVentana("Resumen Integral del Expediente Clínico",
+                ImpresionUtil.resumenExpediente(expedienteSeleccionado, paciente, historial));
+    }
+
+    @FXML
     private void volver() {
         try {
             sceneManager.showDashboardView();
@@ -139,4 +161,19 @@ public class ExpedienteController implements Initializable {
         campoObservaciones.clear();
         tablaExpedientes.getSelectionModel().clearSelection();
     }
+    
+    @FXML
+private void exportarExpedientePDF() {
+    if (expedienteSeleccionado == null) {
+        sceneManager.showAlertInfo("Sin selección", "Elige un expediente",
+                "Selecciona un expediente de la tabla para exportarlo.", AlertType.WARNING);
+        return;
+    }
+    Paciente paciente = comboPaciente.getItems().stream()
+            .filter(p -> p.getIdPaciente() == expedienteSeleccionado.getIdPaciente())
+            .findFirst().orElse(null);
+    List<Cita> historial = citaRepository.findByPaciente(expedienteSeleccionado.getIdPaciente());
+    VBox documento = ImpresionUtil.resumenExpediente(expedienteSeleccionado, paciente, historial);
+    ImpresionUtil.exportarPDF(documento, campoBuscar);
+}
 }

@@ -16,6 +16,8 @@ import main.java.com.vyorg.clinica.kinal0.model.Paciente;
 import main.java.com.vyorg.clinica.kinal0.service.CitaService;
 import main.java.com.vyorg.clinica.kinal0.service.PacienteService;
 import main.java.com.vyorg.clinica.kinal0.util.SceneManager;
+import main.java.com.vyorg.clinica.kinal0.util.ImpresionUtil;
+import javafx.scene.layout.VBox;
 
 public class CitaController implements Initializable {
 
@@ -113,6 +115,20 @@ public class CitaController implements Initializable {
             sceneManager.showAlertInfo("No se pudo eliminar", "Ocurrió un error", e.getMessage(), AlertType.ERROR);
         }
     }
+    
+    @FXML
+private void imprimirCita() {
+    if (citaSeleccionada == null) {
+        sceneManager.showAlertInfo("Sin selección", "Elige una cita",
+                "Selecciona una cita de la tabla para imprimirla.", AlertType.WARNING);
+        return;
+    }
+    Paciente paciente = comboPaciente.getItems().stream()
+            .filter(p -> p.getIdPaciente() == citaSeleccionada.getIdPaciente())
+            .findFirst().orElse(null);
+    ImpresionUtil.mostrarVentana("Formato de Consulta Médica",
+            ImpresionUtil.formatoConsulta(citaSeleccionada, paciente));
+}
 
     @FXML
     private void volver() {
@@ -160,4 +176,18 @@ public class CitaController implements Initializable {
         comboEstado.setValue("Programada");
         tablaCitas.getSelectionModel().clearSelection();
     }
+    
+    @FXML
+private void exportarCitaPDF() {
+    if (citaSeleccionada == null) {
+        sceneManager.showAlertInfo("Sin selección", "Elige una cita",
+                "Selecciona una cita de la tabla para exportarla.", AlertType.WARNING);
+        return;
+    }
+    Paciente paciente = comboPaciente.getItems().stream()
+            .filter(p -> p.getIdPaciente() == citaSeleccionada.getIdPaciente())
+            .findFirst().orElse(null);
+    VBox documento = ImpresionUtil.formatoConsulta(citaSeleccionada, paciente);
+    ImpresionUtil.exportarPDF(documento, campoBuscar);
+}
 }

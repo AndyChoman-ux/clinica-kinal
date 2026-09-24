@@ -57,6 +57,8 @@
                 <Button text="Nuevo" onAction="#nuevoExpediente" styleClass="clinic-btn-secondary"/>
                 <Button text="Guardar" onAction="#guardarExpediente" styleClass="btn-primary"/>
                 <Button text="Eliminar" onAction="#eliminarExpediente" styleClass="clinic-btn-danger"/>
+                <Button text="Imprimir" onAction="#imprimirExpediente" styleClass="clinic-btn-secondary"/>
+                <Button text="Exportar a PDF" onAction="#exportarExpedientePDF" styleClass="clinic-btn-secondary"/>
             </HBox>
         </VBox>
     </bottom>
