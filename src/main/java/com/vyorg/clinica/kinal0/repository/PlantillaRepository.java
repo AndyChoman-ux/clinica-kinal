@@ -12,18 +12,10 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- * Repositorio encargado de la persistencia de datos para las plantillas clínicas.
- * Gestiona consultas, inserciones y actualizaciones en la base de datos.
- */
 public class PlantillaRepository {
 
     private static final Logger LOGGER = Logger.getLogger(PlantillaRepository.class.getName());
 
-    /**
-     * Obtiene una lista con los nombres de todas las plantillas clínicas registradas.
-     * @return Lista de nombres de plantillas.
-     */
     public List<String> obtenerNombresPlantillas() {
         List<String> plantillas = new ArrayList<>();
         String sql = "SELECT nombre_plantilla FROM plantillas_clinicas ORDER BY nombre_plantilla ASC";
@@ -48,11 +40,6 @@ public class PlantillaRepository {
         return plantillas;
     }
 
-    /**
-     * Busca los detalles completos de una plantilla específica por su nombre.
-     * @param nombrePlantilla Nombre de la plantilla a buscar.
-     * @return Un mapa que contiene las notas médicas y los medicamentos asociados.
-     */
     public Map<String, String> obtenerDetallePlantillaPorNombre(String nombrePlantilla) {
         Map<String, String> detallePlantilla = new HashMap<>();
         String sql = "SELECT notas_medicas, medicamentos FROM plantillas_clinicas WHERE nombre_plantilla = ?";
@@ -80,13 +67,6 @@ public class PlantillaRepository {
         return detallePlantilla;
     }
 
-    /**
-     * Inserta una nueva plantilla de diagnóstico y recetas frecuentes en la base de datos.
-     * @param nombre Nombre único de la plantilla.
-     * @param notasMedicas Contenido de las notas médicas predeterminadas.
-     * @param medicamentos Lista de medicamentos predeterminados.
-     * @return true si se guardó con éxito, false en caso contrario.
-     */
     public boolean guardarNuevaPlantilla(String nombre, String notasMedicas, String medicamentos) {
         String sql = "INSERT INTO plantillas_clinicas (nombre_plantilla, notas_medicas, medicamentos) VALUES (?, ?, ?)";
 
@@ -111,11 +91,6 @@ public class PlantillaRepository {
         return false;
     }
 
-    /**
-     * Elimina una plantilla clínica existente mediante su identificador o nombre.
-     * @param nombrePlantilla Nombre de la plantilla a eliminar.
-     * @return true si se eliminó correctamente.
-     */
     public boolean eliminarPlantilla(String nombrePlantilla) {
         String sql = "DELETE FROM plantillas_clinicas WHERE nombre_plantilla = ?";
 

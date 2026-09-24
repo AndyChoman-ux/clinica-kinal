@@ -131,7 +131,7 @@ public class DashboardController implements Initializable {
             lblRol.setText("Rol: " + usuario.getNombreRol());
         }
 
-        // Ejemplo: solo el rol "Administrador" ve estos botones/cajas.
+      
         boolean esAdmin = Sesion.tieneRolId(ID_ROL_ADMIN);
         cajaAdministrarUsuarios.setVisible(esAdmin);
         cajaAdministrarUsuarios.setManaged(esAdmin);

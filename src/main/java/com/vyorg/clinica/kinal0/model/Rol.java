@@ -14,5 +14,5 @@ public class Rol {
     public String getNombreRol() { return nombreRol; }
 
     @Override
-    public String toString() { return nombreRol; } // así se ve bonito en el ComboBox
+    public String toString() { return nombreRol; } 
 }

@@ -79,8 +79,6 @@ public class ImpresionUtil {
                 .findFirst()
                 .orElse(null);
         if (impresoraPDF == null) {
-            // No se encontró una impresora virtual de PDF instalada: se abre el diálogo normal
-            // para que el usuario elija manualmente "Microsoft Print to PDF" (u otra que tenga).
             imprimir(documento, dueño);
             return;
         }
@@ -90,7 +88,7 @@ public class ImpresionUtil {
         }
         boolean ok = job.printPage(documento);
         if (ok) {
-            job.endJob(); // aquí Windows abre su propio diálogo "Guardar salida de impresión como"
+            job.endJob(); 
         }
     }
 

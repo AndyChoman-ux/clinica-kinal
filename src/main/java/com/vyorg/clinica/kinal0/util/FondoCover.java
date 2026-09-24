@@ -7,11 +7,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Region;
 import javafx.scene.shape.Rectangle;
 
-/**
- * Hace que un ImageView cubra por completo un contenedor (StackPane, BorderPane, etc.)
- * sin deformarse y sin dejar bordes vacíos, recortando lo que sobre.
- * Equivale a "-fx-background-size: cover" pero funciona siempre, sin depender de CSS.
- */
 public class FondoCover {
 
     public static void aplicar(ImageView imageView, Region contenedor) {
