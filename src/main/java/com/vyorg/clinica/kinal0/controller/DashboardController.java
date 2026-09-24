@@ -1,6 +1,7 @@
 package main.java.com.vyorg.clinica.kinal0.controller;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,9 +12,13 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import main.java.com.vyorg.clinica.kinal0.dto.response.LoginDTOResponse;
+import main.java.com.vyorg.clinica.kinal0.model.Notificacion;
+import main.java.com.vyorg.clinica.kinal0.repository.CitaRepository;
 import main.java.com.vyorg.clinica.kinal0.repository.PacienteRepository;
 import main.java.com.vyorg.clinica.kinal0.repository.UsuarioRepository;
+import main.java.com.vyorg.clinica.kinal0.service.NotificacionService;
 import main.java.com.vyorg.clinica.kinal0.util.FondoCover;
+import main.java.com.vyorg.clinica.kinal0.util.NotificacionPanel;
 import main.java.com.vyorg.clinica.kinal0.util.SceneManager;
 import main.java.com.vyorg.clinica.kinal0.util.Sesion;
 
@@ -23,6 +28,7 @@ public class DashboardController implements Initializable {
     private final SceneManager sceneManager;
     private final PacienteRepository pacienteRepository;
     private final UsuarioRepository usuarioRepository;
+    private final NotificacionService notificacionService;
 
     @FXML
     private Label lblUsuario;
@@ -51,10 +57,18 @@ public class DashboardController implements Initializable {
     @FXML
     private VBox cajaAdministrarUsuarios;
 
-    public DashboardController(SceneManager sceneManager, PacienteRepository pacienteRepository, UsuarioRepository usuarioRepository) {
+    @FXML
+    private StackPane cajaCampana;
+
+    @FXML
+    private Label lblBadgeNotificaciones;
+
+    public DashboardController(SceneManager sceneManager, PacienteRepository pacienteRepository,
+                               UsuarioRepository usuarioRepository, CitaRepository citaRepository) {
         this.sceneManager = sceneManager;
         this.pacienteRepository = pacienteRepository;
         this.usuarioRepository = usuarioRepository;
+        this.notificacionService = new NotificacionService(citaRepository);
     }
 
     @FXML
@@ -73,6 +87,11 @@ public class DashboardController implements Initializable {
         } catch (Exception e) {
             sceneManager.showAlertInfo("Error", "No se pudo abrir Citas", e.getMessage(), AlertType.ERROR);
         }
+    }
+
+    @FXML
+    private void abrirNotificaciones() {
+        NotificacionPanel.mostrar(cajaCampana, notificacionService.listar(), sceneManager);
     }
 
     @FXML
@@ -121,6 +140,13 @@ public class DashboardController implements Initializable {
 
         lblTotalPacientes.setText(String.valueOf(pacienteRepository.findAll().size()));
         lblTotalUsuarios.setText(String.valueOf(usuarioRepository.findAll().size()));
+
+        List<Notificacion> notificaciones = notificacionService.listar();
+        if (!notificaciones.isEmpty()) {
+            lblBadgeNotificaciones.setText(String.valueOf(notificaciones.size()));
+            lblBadgeNotificaciones.setVisible(true);
+            lblBadgeNotificaciones.setManaged(true);
+        }
     }
 
     @FXML
