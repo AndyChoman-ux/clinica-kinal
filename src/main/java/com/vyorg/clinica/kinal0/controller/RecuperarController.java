@@ -46,9 +46,7 @@ public class RecuperarController implements Initializable {
         try {
             String codigo = recuperarService.solicitarCodigo(new SolicitarCodigoDTORequest(usuarioOCorreo));
 
-            // NOTA: en un sistema real, este código se enviaría por correo electrónico.
-            // Este proyecto no tiene un servidor SMTP configurado, así que se muestra
-            // aquí directamente para poder continuar con la prueba del flujo.
+            
             sceneManager.showAlertInfo("Código generado", "Válido por 15 minutos",
                     "Tu código de verificación es: " + codigo, AlertType.INFORMATION);
 

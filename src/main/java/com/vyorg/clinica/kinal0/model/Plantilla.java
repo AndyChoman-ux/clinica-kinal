@@ -1,8 +1,6 @@
 package main.java.com.vyorg.clinica.kinal0.model;
 
-/**
- * Modelo que representa una plantilla clínica de diagnósticos y recetas frecuentes.
- */
+
 public class Plantilla {
 
     private int idPlantilla;
@@ -10,11 +8,9 @@ public class Plantilla {
     private String notasMedicas;
     private String medicamentos;
 
-    // Constructor vacío
     public Plantilla() {
     }
 
-    // Constructor con parámetros
     public Plantilla(int idPlantilla, String nombrePlantilla, String notasMedicas, String medicamentos) {
         this.idPlantilla = idPlantilla;
         this.nombrePlantilla = nombrePlantilla;
@@ -22,7 +18,6 @@ public class Plantilla {
         this.medicamentos = medicamentos;
     }
 
-    // Getters y Setters
     public int getIdPlantilla() {
         return idPlantilla;
     }

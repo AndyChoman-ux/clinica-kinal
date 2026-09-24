@@ -8,10 +8,6 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- * Servicio encargado de la lógica de negocio para la gestión de plantillas
- * y el autocompletado instantáneo en las consultas médicas.
- */
 public class PlantillaService {
 
     private static final Logger LOGGER = Logger.getLogger(PlantillaService.class.getName());
@@ -21,10 +17,6 @@ public class PlantillaService {
         this.plantillaRepository = new PlantillaRepository();
     }
 
-    /**
-     * Obtiene y valida la lista de plantillas disponibles para mostrar en la interfaz.
-     * @return Lista de nombres de plantillas seguras.
-     */
     public List<String> listarNombresPlantillas() {
         try {
             LOGGER.info("Servicio: Procesando solicitud para listar plantillas clínicas.");
@@ -39,11 +31,6 @@ public class PlantillaService {
         }
     }
 
-    /**
-     * Carga y procesa los detalles de una plantilla seleccionada para realizar el autocompletado.
-     * @param nombrePlantilla Nombre de la plantilla elegida por el médico.
-     * @return Mapa con las notas y medicamentos listos para autocompletar.
-     */
     public Map<String, String> procesarAutocompletado(String nombrePlantilla) {
         Map<String, String> resultadoVacio = new HashMap<>();
         resultadoVacio.put("notasMedicas", "");
@@ -71,13 +58,7 @@ public class PlantillaService {
         }
     }
 
-    /**
-     * Valida los datos y coordina el almacenamiento de una nueva plantilla clínica.
-     * @param nombre Nombre de la plantilla.
-     * @param notas Notas médicas.
-     * @param medicamentos Lista de medicamentos.
-     * @return true si el registro fue exitoso.
-     */
+   
     public boolean crearNuevaPlantilla(String nombre, String notas, String medicamentos) {
         if (nombre == null || nombre.isBlank()) {
             LOGGER.warning("Validación fallida: El nombre de la plantilla es obligatorio.");
@@ -85,11 +66,11 @@ public class PlantillaService {
         }
 
         if (notas == null) {
-            notas = ""; // Asegurar que no sea nulo
+            notas = ""; 
         }
 
         if (medicamentos == null) {
-            medicamentos = ""; // Asegurar que no sea nulo
+            medicamentos = ""; 
         }
 
         try {
@@ -101,11 +82,6 @@ public class PlantillaService {
         }
     }
 
-    /**
-     * Gestiona la eliminación de una plantilla en el sistema.
-     * @param nombrePlantilla Nombre de la plantilla a eliminar.
-     * @return true si se eliminó correctamente.
-     */
     public boolean borrarPlantilla(String nombrePlantilla) {
         if (nombrePlantilla == null || nombrePlantilla.isBlank()) {
             LOGGER.warning("Intento de borrado fallido: Nombre de plantilla inválido.");
