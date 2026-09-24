@@ -12,6 +12,9 @@ import main.java.com.vyorg.clinica.kinal0.dto.request.RegistroDTORequest;
 import main.java.com.vyorg.clinica.kinal0.dto.response.RegistroDTOResponse;
 import main.java.com.vyorg.clinica.kinal0.service.RegistroService;
 import main.java.com.vyorg.clinica.kinal0.util.SceneManager;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.StackPane;
+import main.java.com.vyorg.clinica.kinal0.util.FondoCover;
 
 public class RegistroController implements Initializable {
 
@@ -26,6 +29,12 @@ public class RegistroController implements Initializable {
 
     @FXML
     private PasswordField campoPasswordRegistro;
+    
+    @FXML
+    private StackPane fondoPane;
+
+    @FXML
+    private ImageView imagenFondo;
 
     public RegistroController(RegistroService registroService, SceneManager sceneManager) {
         this.registroService = registroService;
@@ -34,6 +43,7 @@ public class RegistroController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        FondoCover.aplicar(imagenFondo, fondoPane);
     }
 
     @FXML

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="600.0" prefWidth="800.0" stylesheets="@../ccs/styles.css"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="main.java.com.vyorg.clinica.kinal0.controller.EstadisticasController">
+    <top>
+        <HBox spacing="10.0" alignment="CENTER_LEFT" styleClass="clinic-toolbar">
+            <padding>
+                <Insets top="15.0" right="15.0" bottom="15.0" left="15.0"/>
+            </padding>
+            <Label text="Estadísticas" styleClass="clinic-toolbar-title"/>
+            <HBox HBox.hgrow="ALWAYS"/>
+            <Button text="Volver" onAction="#volver" styleClass="clinic-btn-secondary"/>
+        </HBox>
+    </top>
+    <center>
+        <HBox spacing="20.0" alignment="TOP_LEFT">
+            <padding>
+                <Insets top="30.0" right="30.0" bottom="30.0" left="30.0"/>
+            </padding>
+            <VBox alignment="CENTER" spacing="6.0" prefWidth="180.0" prefHeight="100.0" styleClass="stat-card">
+                <Label fx:id="lblTotalPacientes" styleClass="stat-number" text="0"/>
+                <Label styleClass="stat-label" text="Pacientes"/>
+            </VBox>
+            <VBox alignment="CENTER" spacing="6.0" prefWidth="180.0" prefHeight="100.0" styleClass="stat-card">
+                <Label fx:id="lblTotalUsuarios" styleClass="stat-number" text="0"/>
+                <Label styleClass="stat-label" text="Usuarios"/>
+            </VBox>
+            <VBox alignment="CENTER" spacing="6.0" prefWidth="180.0" prefHeight="100.0" styleClass="stat-card">
+                <Label fx:id="lblCitasHoy" styleClass="stat-number" text="0"/>
+                <Label styleClass="stat-label" text="Citas de hoy"/>
+            </VBox>
+            <VBox alignment="CENTER" spacing="6.0" prefWidth="180.0" prefHeight="100.0" styleClass="stat-card">
+                <Label fx:id="lblExpedientesSemana" styleClass="stat-number" text="0"/>
+                <Label styleClass="stat-label" text="Expedientes esta semana"/>
+            </VBox>
+        </HBox>
+    </center>
+</BorderPane>

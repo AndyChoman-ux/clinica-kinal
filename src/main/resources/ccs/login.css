@@ -29,11 +29,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
  
 .login-bg {
     -fx-background-color: #e9e3d8;
-    /* Para la foto de la recepción, descomenta y ajusta la ruta:*/
-    -fx-background-image: url('recepcion.jpg');
+    -fx-background-image: url('../img/fondo-dashboar.jpg');
     -fx-background-size: cover;
     -fx-background-position: center center;
-    
 }
  
 .login-card {
