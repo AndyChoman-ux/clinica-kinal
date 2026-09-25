@@ -8,7 +8,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import main.java.com.vyorg.clinica.kinal0.controller.CitaController;
 import main.java.com.vyorg.clinica.kinal0.controller.DashboardController;
-import main.java.com.vyorg.clinica.kinal0.controller.EnConstruccionController;
+
 import main.java.com.vyorg.clinica.kinal0.controller.EstadisticasController;
 import main.java.com.vyorg.clinica.kinal0.controller.ExpedienteController;
 import main.java.com.vyorg.clinica.kinal0.controller.LoginController;
@@ -111,7 +111,7 @@ public class SceneManager {
 
     public void showEnConstruccion(String titulo) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/main/resources/view/en-construccion.fxml"));
-        loader.setControllerFactory(clazz -> new EnConstruccionController(this, titulo));
+
 
         Parent root = loader.load();
         stage.setScene(new Scene(root, ANCHO_VENTANA, ALTO_VENTANA));
