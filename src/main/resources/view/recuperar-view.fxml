@@ -5,29 +5,66 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="405.0" prefWidth="622.0" spacing="8.0" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.com.vyorg.clinica.kinal0.controller.RecuperarController">
-    <padding>
-        <Insets bottom="30.0" left="40.0" right="40.0" top="30.0" />
-    </padding>
-
-    <Label text="Restablecer contraseña" />
-
-    <Label text="Usuario o correo" />
-    <TextField fx:id="campoUsuarioOCorreo" />
-    <Button onAction="#solicitarCodigo" text="Enviar código" />
-
-    <Label text="Código de verificación" />
-    <TextField fx:id="campoCodigo" />
-
-    <Label text="Nueva contraseña" />
-    <PasswordField fx:id="campoNuevaPassword" />
-
-    <Label text="Confirmar contraseña" />
-    <PasswordField fx:id="campoConfirmarPassword" />
-
-    <Button onAction="#restablecerPassword" text="Restablecer" />
-    <Button onAction="#volverALogin" text="Volver a iniciar sesión" />
-
-</VBox>
+<StackPane fx:id="fondoPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="805.0" stylesheets="@../ccs/login.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.com.vyorg.clinica.kinal0.controller.RecuperarController">
+   <children>
+      <ImageView fx:id="imagenFondo" pickOnBounds="true">
+         <image>
+            <Image url="@../img/fondo-dashboar.jpg" />
+         </image>
+      </ImageView>
+      <VBox alignment="TOP_CENTER" maxHeight="488.0" maxWidth="340.0" prefHeight="488.0" prefWidth="340.0" spacing="10.0" styleClass="login-card">
+         <padding>
+            <Insets bottom="30.0" left="26.0" right="26.0" top="30.0" />
+         </padding>
+         <children>
+            <Label styleClass="login-title" text="Restablecer contraseña" />
+            <Label styleClass="login-subtitle" text="Correo o usuario " />
+            <HBox alignment="CENTER_LEFT" spacing="8.0" styleClass="input-row">
+               <padding>
+                  <Insets bottom="8.0" left="10.0" right="10.0" top="8.0" />
+               </padding>
+               <children>
+                  <Label styleClass="input-icon" text="✉" />
+                  <TextField fx:id="campoUsuarioOCorreo" promptText="Correo o usuario" styleClass="text-field-flat" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <Button mnemonicParsing="false" onAction="#solicitarCodigo" prefHeight="40.0" styleClass="btn-login" text="Enviar código" />
+            <HBox alignment="CENTER_LEFT" spacing="8.0" styleClass="input-row">
+               <padding>
+                  <Insets bottom="8.0" left="10.0" right="10.0" top="8.0" />
+               </padding>
+               <children>
+                  <Label styleClass="input-icon" text="🔑" />
+                  <TextField fx:id="campoCodigo" promptText="Código de verificación" styleClass="text-field-flat" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="36.0" layoutY="223.0" spacing="8.0" styleClass="input-row">
+               <padding>
+                  <Insets bottom="8.0" left="10.0" right="10.0" top="8.0" />
+               </padding>
+               <children>
+                  <Label styleClass="input-icon" text="🔒" />
+                  <PasswordField fx:id="campoNuevaPassword" promptText="Nueva contraseña" styleClass="text-field-flat" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="8.0" styleClass="input-row">
+               <padding>
+                  <Insets bottom="8.0" left="10.0" right="10.0" top="8.0" />
+               </padding>
+               <children>
+                  <Label styleClass="input-icon" text="🔐" />
+                  <PasswordField fx:id="campoConfirmarPassword" promptText="Confirmar contraseña" styleClass="text-field-flat" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#restablecerPassword" prefHeight="40.0" styleClass="btn-login" text="Restablecer" />
+            <Button mnemonicParsing="false" onAction="#volverALogin" style="-fx-background-color: transparent; -fx-text-fill: #3f9e88;" text="Volver a iniciar sesión" />
+         </children>
+      </VBox>
+   </children>
+</StackPane>

@@ -13,11 +13,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-
-<StackPane fx:id="fondoPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-           prefHeight="607.0" prefWidth="805.0" stylesheets="@../ccs/login.css"
-           xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1"
-           fx:controller="main.java.com.vyorg.clinica.kinal0.controller.LoginController">
+<StackPane fx:id="fondoPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="607.0" prefWidth="805.0" stylesheets="@../ccs/login.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.java.com.vyorg.clinica.kinal0.controller.LoginController">
    <children>
       <ImageView fx:id="imagenFondo" pickOnBounds="true">
          <image>
@@ -43,7 +39,7 @@
                </children>
             </HBox>
 
-            <VBox alignment="CENTER" maxHeight="380.0" maxWidth="340.0" prefHeight="380.0" prefWidth="340.0" spacing="10.0" styleClass="login-card">
+            <VBox alignment="CENTER" maxHeight="380.0" maxWidth="367.0" prefHeight="380.0" prefWidth="367.0" spacing="10.0" styleClass="login-card">
                <padding>
                   <Insets bottom="24.0" left="26.0" right="26.0" top="24.0" />
                </padding>
@@ -72,6 +68,7 @@
                      <children>
                         <CheckBox mnemonicParsing="false" styleClass="checkbox-row-label" text="Recordar credenciales" />
                         <Button fx:id="botonRecuperar" managed="false" mnemonicParsing="false" onAction="#irARecuperarPassword" style="-fx-background-color: transparent; -fx-padding: 0;" styleClass="link-text" text="Recuperar contraseña" visible="false" />
+                        <Hyperlink onAction="#irARecuperarPassword" prefHeight="23.0" prefWidth="162.0" text="¿Olvidaste tu contraseña?" />
                      </children>
                   </HBox>
                   <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#iniciarSesion" prefHeight="40.0" styleClass="btn-login" text="INICIAR SESIÓN" />
